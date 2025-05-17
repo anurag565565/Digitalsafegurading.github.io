@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Safety Warning</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #c0392b;
+        }
+        ul {
+            margin-top: 1rem;
+        }
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+        }
+        #popup {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #popup-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        #popup-content h2 {
+            color: #e74c3c;
+        }
+        #popup button {
+            margin-top: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup">
+        <div id="popup-content">
+            <h2>⚠️ DO NOT SCAN UNKNOWN QR CODES</h2>
+            <p>Many students have already been victims of <strong>Quishing</strong> — QR-based phishing attacks.</p>
+            <button onclick="trackClick();document.getElementById('popup').style.display='none'">Got it</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Digital Safety First</h1>
+        <p>Please read the following precautions carefully to stay protected online.</p>
+
+        <h2>✅ Do's</h2>
+        <ul>
+            <li>Verify the sender before scanning any QR code.</li>
+            <li>Always preview the link before clicking through a QR code.</li>
+            <li>Report suspicious activity to a trusted adult or school authority.</li>
+            <li>Keep your devices updated and secure.</li>
+            <li>Use strong passwords and enable 2-factor authentication.</li>
+        </ul>
+
+        <h2>❌ Don'ts</h2>
+        <ul>
+            <li>Don't scan QR codes from unknown sources or posters.</li>
+            <li>Don't share personal information or passwords online.</li>
+            <li>Don't click on links without checking their authenticity.</li>
+            <li>Don't assume every QR code is safe — pause and think.</li>
+            <li>Don't ignore red flags like fake logins or untrusted redirects.</li>
+        </ul>
+
+        <div class="footer">
+            © 2025 The Millennium School Dubai | Digital Safeguarding Lead: Anurag Verma
+        </div>
+    </div>
+
+    <script>
+        function trackClick() {
+            fetch('https://api.countapi.xyz/hit/digital-safety-qr/visits')
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Got it clicked: ", data.value);
+                });
+        }
+    </script>
+</body>
+</html>
